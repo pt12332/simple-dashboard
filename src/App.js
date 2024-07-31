@@ -1,24 +1,47 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import TaskOverview from './TaskOverview';
+import ComplianceStatus from './ComplianceStatus';
+import RecentActivity from './RecentActivity';
+import NavBar from './NavBar';
 import './App.css';
+
+const Dashboard = () => (
+  <div>
+    <TaskOverview />
+    <ComplianceStatus />
+    <RecentActivity />
+  </div>
+);
+
+const Login = () => (
+  <div>
+    <h2>Log In</h2>
+    {/* Add your log in form here */}
+  </div>
+);
+
+const Register = () => (
+  <div>
+    <h2>Register</h2>
+    {/* Add your registration form here */}
+  </div>
+);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <NavBar />
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
 

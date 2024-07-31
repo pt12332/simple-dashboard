@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+.App {
+  display: flex;
+}
+
+.content {
+  margin-left: 200px; /* Adjust this if needed */
+  padding: 20px;
+  width: 100%;
+}
